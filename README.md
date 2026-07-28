@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🎓 بوابة الاستعلام عن نتيجة الثانوية العامة
+# 🎓 Thanaweya Amma Results Portal
 
-### الدور الأول ٢٠٢٦ · نظام حديث
+### 2026 First Round · Modern System (Egypt)
 
-استعلام فوري عن النتيجة برقم الجلوس أو الاسم — يعمل بالكامل داخل المتصفح، بدون سيرفر وبدون إنترنت (بعد أول تحميل).
+Instant result lookup by seating number or full name — runs entirely in the browser, no server, no internet required after the first load.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f?logo=github)](#)
 [![No Backend](https://img.shields.io/badge/backend-none-blue)](#)
@@ -14,32 +14,34 @@
 
 ---
 
-## ✨ المميزات
+## ✨ Features
 
-| الميزة | الوصف |
+| Feature | Description |
 |---|---|
-| 🔍 **بحث برقم الجلوس** | مطابقة فورية ودقيقة |
-| 📝 **بحث بالاسم رباعي** | يتجاهل التشكيل واختلاف الألف/الياء/التاء المربوطة |
-| 👥 **نتائج متعددة** | لو تشابهت الأسماء، تظهر قائمة لاختيار الطالب الصحيح |
-| 📊 **تفاصيل كاملة** | المجموع الكلي، النسبة المئوية، وحالة الطالب |
-| 🔒 **خصوصية كاملة** | كل البيانات والمعالجة تتم داخل متصفح المستخدم فقط، لا يتم إرسال أي شيء لأي سيرفر |
-| ⚡ **بدون Backend** | ملف HTML واحد مستقل، يعمل على أي استضافة ثابتة |
+| 🔍 **Search by seating number** | Instant, exact match |
+| 📝 **Search by full name** | Ignores diacritics and common Arabic letter variants (alef, ya, ta marbuta) |
+| 👥 **Multiple matches** | If several students share a name, a picklist is shown so the user selects the right one |
+| 📊 **Full details** | Total score, percentage, and student status |
+| 🔒 **Full privacy** | All data and processing happen locally in the user's browser — nothing is ever sent to a server |
+| ⚡ **No backend** | A single self-contained HTML file that runs on any static host |
+
+> Note: the site's user interface is in Arabic, since it's built for Egyptian Thanaweya Amma students.
 
 ---
 
+## 🖼️ Screenshot
 
-## 🖼️ لقطة من الموقع
 ![screenshot](screenshot.png)
 
 
 ---
 
-## 🚀 التشغيل على GitHub Pages
+## 🚀 Deploying on GitHub Pages
 
-1. ادخل على تبويب **Settings** في الريبو.
-2. من القائمة الجانبية اختر **Pages**.
-3. تحت **Branch** اختر `main` والفولدر `/(root)` ثم اضغط **Save**.
-4. بعد دقيقة أو اتنين، هيظهر لينك الموقع أعلى نفس الصفحة بالشكل:
+1. Open the **Settings** tab of the repo.
+2. In the sidebar, select **Pages**.
+3. Under **Branch**, choose `main` and the `/(root)` folder, then click **Save**.
+4. After a minute or two, the live link will appear at the top of that same page, in the form:
    ```
    https://<username>.github.io/<repo-name>/
    ```
@@ -47,35 +49,35 @@
 
 ---
 
-## 🧩 كيف يعمل تقنيًا
+## 🧩 How it works
 
-- الموقع عبارة عن **ملف HTML واحد مستقل** (لا توجد ملفات خارجية باستثناء خط Google Fonts).
-- بيانات النتيجة (~٩٢٠ ألف طالب) مضغوطة بصيغة gzip ومُرمّزة Base64 ومدمجة داخل الملف نفسه.
-- عند فتح الصفحة، يقوم المتصفح بفك ضغط البيانات وفهرستها محليًا (يستغرق ٣-٥ ثوانٍ حسب سرعة الجهاز)، ثم يصبح البحث فوريًا.
-- لا توجد قاعدة بيانات، ولا API، ولا أي اتصال بالإنترنت مطلوب بعد أول تحميل للصفحة.
+- The site is a **single self-contained HTML file** (no external files besides a Google Fonts stylesheet).
+- The result data (~920,000 students) is gzip-compressed, Base64-encoded, and embedded directly inside the file.
+- On page load, the browser decompresses and indexes the data locally (takes 3–5 seconds depending on device speed); after that, search is instant.
+- There is no database, no API, and no internet connection required after the initial page load.
 
-**النسبة المئوية** تُحسب بالمعادلة:
+**Percentage** is calculated as:
 
 ```
-النسبة % = (total_degree ÷ 320) × 100
+percentage % = (total_degree ÷ 320) × 100
 ```
 
 ---
 
-## 🛠️ تعديل البيانات مستقبلًا
+## 🛠️ Updating the data later
 
-لو عايز تحدّث بيانات النتيجة (دور تاني، سنة جديدة، إلخ)، ابعتلي ملف الإكسيل الجديد وهجهزلك نسخة محدّثة من نفس الملف تلقائيًا بنفس الشكل والتصميم.
-
----
-
-## ⚠️ إخلاء مسؤولية
-
-هذه أداة استعلام **مستقلة وغير رسمية**، مبنية على بيانات تم توفيرها، وليست تابعة لوزارة التربية والتعليم أو أي جهة حكومية رسمية. يُرجى التأكد دائمًا من النتيجة الرسمية عبر القنوات الحكومية المعتمدة.
+To update the results (a new round, a new year, etc.), send over the new Excel file and a refreshed version of this same file — same design, same features — can be generated automatically.
 
 ---
 
-## 📄 الترخيص
+## ⚠️ Disclaimer
 
-هذا المشروع متاح للاستخدام الشخصي والتعديل بحرية.
+This is an **independent, unofficial** lookup tool built from provided data. It is not affiliated with the Egyptian Ministry of Education or any official government body. Always verify your official result through approved government channels.
+
+---
+
+## 📄 License
+
+This project is free to use and modify for personal purposes.
 
 </div>
