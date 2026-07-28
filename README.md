@@ -29,9 +29,9 @@
 
 ## 🖼️ لقطة من الموقع
 
-> ```markdown
-> ![screenshot](screenshot.png)
-> ```
+## 🖼️ لقطة من الموقع
+![screenshot](screenshot.png)
+
 
 ---
 
